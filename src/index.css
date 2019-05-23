@@ -25,7 +25,7 @@ code {
   align-items: center;
 }
 
-.box {
+.box-wrapper {
   display: inline-block;
   float: left;
   height: 45px;
@@ -56,10 +56,25 @@ code {
 }
 
 .tooltip-remove {
+  background-color: #61dafb;
   position: absolute;
   z-index: 100;
   margin-left: -20px;
-  margin-top: -20px;
+  margin-top: 40px;
+  width: 100px;
+  height: 120px;
+}
+
+.tooltip-remove p {
+    font-size: 14px;
+    margin: 5px 0px;
+}
+
+.tooltip-remove input {
+    height: 50px;
+    width: 75px;
+    padding: 0px;
+    border: 0px;
 }
 
 .add-wrapper {

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import RemoveTooltip from './RemoveTooltip';
 import { observable} from "mobx";
 import { observer } from "mobx-react";
-import Tooltip from "./Container";
 
 @observer
 class Box extends Component {
@@ -15,8 +14,8 @@ class Box extends Component {
         this.showTooltip = state;
     }
 
-    updateColor = (event) => {
-        this.color = event.target.value;
+    updateColor = (color) => {
+        this.color = color;
     }
 
     removeFromList = () => {
@@ -24,14 +23,13 @@ class Box extends Component {
     }
 
     render() {
-        const tooltip = <RemoveTooltip visible={this.showTooltip} callback={this.removeFromList} />
+        const tooltip = <RemoveTooltip visible={this.showTooltip} callback={this.removeFromList} colorCallback={this.updateColor} />
         return (
-            <div className="box-wrapper" onMouseEnter={() => this.toggleTooltip(true)} onMouseLeave={() => this.toggleTooltip(false)}>
+            <div className="box-wrapper" style={{backgroundColor: ("undefined" !== typeof this.color) ? this.color : 'orange'}} onMouseEnter={() => this.toggleTooltip(true)} onMouseLeave={() => this.toggleTooltip(false)}>
                 {tooltip}
-                <input type="color" className="box" value={this.color} onChange={this.updateColor}/>
             </div>
         )
     }
 }
 
-export default Box
+export default Box;

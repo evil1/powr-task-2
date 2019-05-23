@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
+import { observable} from "mobx";
+import { observer } from "mobx-react";
 
+@observer
 class Box extends Component {
-    state = {
-        color: this.props.elem.color
-    }
 
-    changeColor = () => {
-        this.setState({color: '#FF0000'})
+    @observable color = this.props.elem.color;
+
+    updateColor = (event) => {
+        this.color = event.target.value;
     }
 
     render() {
         return (
-            <div className="box" style={{backgroundColor: this.state.color}} onClick={this.changeColor}></div>
+            <input type="color" className="box" value={this.color} onChange={this.updateColor}/>
         )
     }
 }

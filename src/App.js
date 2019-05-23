@@ -26,11 +26,10 @@ class App extends Component {
 
     return (
         <div className="App">
-          {childrenList}
-          <DevTools/>
-          <button onClick={this.dec}>-1</button>
-          <h1>{this.count}</h1>
-          <button onClick={this.add}>+1</button>
+          <DevTools />
+          <div className="container">
+            {childrenList}
+          </div>
         </div>
     );
   }

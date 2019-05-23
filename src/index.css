@@ -18,3 +18,9 @@ code {
   height: 35px;
   width: 35px;
 }
+
+.container {
+  display: inline-block;
+  border: 1px solid #000000;
+  padding: 10px;
+}

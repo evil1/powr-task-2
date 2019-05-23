@@ -5,6 +5,7 @@ import { observable} from "mobx";
 import { observer } from "mobx-react";
 import Box from './components/Box';
 import Tooltip from './components/Tooltip';
+import Container from './components/Container';
 
 @observer
 class App extends Component {
@@ -26,17 +27,19 @@ class App extends Component {
   render() {
     const tooltip = <Tooltip visible={this.showTooltip} callback={this.addChild} />
     var childrenList = this.children.map(function(child, i) {
-      return (child.type === 'box') ? <Box elem={child} key={i} /> : '';
+      return (child.type === 'box') ? <Box elem={child} key={i} /> : <Container key={i}/>;
     })
 
     return (
         <div className="App">
           <DevTools />
-          <div className="container">
-            {childrenList}
-            <div className="add-wrapper">
-              {tooltip}
-              <label className="add" onMouseEnter={() => this.toggleTooltip(true)} onMouseLeave={() => this.toggleTooltip(false)}>Add</label>
+          <div className="wrapper">
+            <div className="container">
+              {childrenList}
+              <div className="add-wrapper">
+                {tooltip}
+                <label className="add" onMouseEnter={() => this.toggleTooltip(true)} onMouseLeave={() => this.toggleTooltip(false)}>Add</label>
+              </div>
             </div>
           </div>
         </div>

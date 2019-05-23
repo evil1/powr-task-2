@@ -14,7 +14,7 @@ class Tooltip extends Component {
     }
 
     addContainer = () => {
-        this.props.callback({type: 'container'})
+        this.props.callback({type: 'container', items: []})
     }
 
     render() {

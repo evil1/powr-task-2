@@ -13,10 +13,16 @@ code {
     monospace;
 }
 
-.container {
+.wrapper {
   display: inline-block;
+}
+
+.container {
+  float: left;
+  display: block;
   border: 1px solid #000000;
   padding: 10px;
+  vertical-align: middle;
 }
 
 .box {
@@ -46,11 +52,14 @@ code {
 }
 
 .add-wrapper {
-  display: inline-block;
+  display: block;
   float: left;
+  height: 100%;
+  margin: auto 0px;
 }
 
 .box:not(:first-child),
-.add-wrapper:not(:first-child) {
+.add-wrapper:not(:first-child),
+.container:not(:first-child) {
   margin-left: 15px;
 }

@@ -55,6 +55,13 @@ code {
   margin-top: -20px;
 }
 
+.tooltip-remove {
+  position: absolute;
+  z-index: 100;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
 .add-wrapper {
   display: block;
   float: left;
@@ -62,7 +69,7 @@ code {
   margin: auto 0px;
 }
 
-.box:not(:first-child),
+.box-wrapper:not(:first-child),
 .add-wrapper:not(:first-child),
 .container:not(:first-child) {
   margin-left: 15px;

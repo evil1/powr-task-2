@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 function ColourNameToHex(colour)
 {
     var colours = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
@@ -27,10 +25,10 @@ function ColourNameToHex(colour)
         "wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5",
         "yellow":"#ffff00","yellowgreen":"#9acd32"};
 
-    if (typeof colours[colour.toLowerCase()] != 'undefined')
+    if ('undefined' !== typeof colours[colour.toLowerCase()])
         return colours[colour.toLowerCase()];
 
-    return false;
+    return colour.toLowerCase();
 }
 
 export default ColourNameToHex;

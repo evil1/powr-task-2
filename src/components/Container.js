@@ -16,7 +16,7 @@ class Container extends Component {
 
     addChild = (child) => {
         if (child.type === 'box' && "undefined" === typeof child.color) {
-            child.color = '#FFA500';
+            child.color = '#ff8c00';
         }
         this.items.push(child);
     }

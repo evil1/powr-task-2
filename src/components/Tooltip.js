@@ -10,7 +10,7 @@ class Tooltip extends Component {
     }
 
     addBox = () => {
-        this.props.callback({type: 'box', color: '#ff8c00'})
+        this.props.callback({type: 'box'})
     }
 
     addContainer = () => {

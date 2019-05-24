@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Tooltip from './Tooltip';
 import Box from './Box';
-import {observable} from "mobx";
-import {observer} from "mobx-react";
+import {observable} from 'mobx';
+import {observer} from 'mobx-react';
+import ColourNameToHex from '../helpers/ColorHelper';
 
 @observer
 class Container extends Component {
@@ -36,9 +37,19 @@ class Container extends Component {
         const tooltip = <Tooltip visible={this.showTooltip} callback={this.addChild} />
         if ("undefined" !== typeof this.items) {
             const childrenList = this.items.map(function (child, i) {
-                return (child.type === 'box') ?
-                    <Box elem={child} key={i} index={i} removeCallback={this.removeChild}/> :
-                    <Container items={child.items} key={i} index={i} removeCallback={this.removeChild}/>;
+                let component = '';
+
+                if (child.type === 'box') {
+                    let box = {
+                        type: 'box',
+                        color: ("undefined" !== typeof child.color)  ? ColourNameToHex(child.color) : '#ff8c00'
+                    }
+                    component = <Box elem={box} key={i} index={i} removeCallback={this.removeChild}/>;
+                } else {
+                    component = <Container items={child.items} key={i} index={i} removeCallback={this.removeChild}/>;
+                }
+
+                return component;
             }, this)
             const remove = (!this.isRoot) && <label className="remove" onClick={this.removeFromList}>Remove</label>
 

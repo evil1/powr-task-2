@@ -36,7 +36,7 @@ class App extends Component {
           <div className="wrapper">
             <Container isRoot={true} items={this.items}/>
           </div>
-          <h1>Container descriptioln</h1>
+          <h1>Container description</h1>
           <div className="json">
             <textarea rows="10" cols="50" onChange={this.parseItems}></textarea>
             <button onClick={this.applyItems}>Build</button>

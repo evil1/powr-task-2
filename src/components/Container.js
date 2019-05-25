@@ -58,7 +58,8 @@ class Container extends Component {
                     {childrenList}
                     <div className="add-wrapper">
                         {tooltip}
-                        <label className="add" onMouseEnter={() => this.toggleTooltip(true)}
+                        <label className="add" onClick={() => this.toggleTooltip(true)}
+                               onMouseEnter={() => this.toggleTooltip(true)}
                                onMouseLeave={() => this.toggleTooltip(false)}>Add</label>
                         {remove}
                     </div>

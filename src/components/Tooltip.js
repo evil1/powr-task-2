@@ -11,10 +11,12 @@ class Tooltip extends Component {
 
     addBox = () => {
         this.props.callback({type: 'box'})
+        this.setState({hover: false})
     }
 
     addContainer = () => {
         this.props.callback({type: 'container', items: []})
+        this.setState({hover: false})
     }
 
     render() {

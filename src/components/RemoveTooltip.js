@@ -15,6 +15,7 @@ class RemoveTooltip extends Component {
 
     updateColor = (event) => {
         this.props.colorCallback(event.target.value);
+        this.setState({hover: false})
     }
 
     render() {
